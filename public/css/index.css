@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Koulen&family=Montserrat:wght@200&family=Noto+Sans&family=Noto+Sans+JP:wght@100&family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+
+#body-home{
+    background-color: #4b1610;
+    padding: 0;
+    margin: 0;
+}
+
+.container-fluid#container-carrossel{
+    display: 1;
+    padding-left: 0;
+    padding-right: 0;
+    background-color: #4b1610;
+}
+
+.container#container-banners{
+    position: relative;
+    display: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container {
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    transform: translateX(0);
+    transition: transform 1s ease;
+}
+
+.from-left img {
+    transform: translateX(-100%);
+}
+
+.from-right img {
+    transform: translateX(100%);
+}
+
+.from-bottom img {
+    transform: translateY(100%);
+}
+
+.image-container img.appear {
+    transform: translateX(0) translateY(0);
+}
+
+@media (max-width: 768px) {
+    .image-container {
+        margin-bottom: 20px;
+    }
+}
+
+
+

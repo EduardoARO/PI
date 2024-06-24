@@ -1,0 +1,70 @@
+
+#body-cardapio{
+    background-color: #FFF5EE;
+    padding: 0;
+    margin: 0;
+}
+
+.card{
+    background-color:#FFF5EE;
+    color: #4b1610;
+    font-family: "Poppins", sans-serif;
+    font-size: larger;
+    border: #4b1610 2px solid;
+    transition: transform .2s
+}
+
+.col#foto{
+    padding: 0;
+    min-height: 200px;
+}
+
+.col img#img-card{
+    padding: 0;
+    margin-top: 2vh;
+}
+
+.col-sm-4{
+    max-width: 80%;
+    max-height: 80%;
+}
+
+p{
+    font-size: medium;
+    height: 6vh;
+}
+
+.btn-card{
+    background-color:#4b1610;
+    color: #FFF5EE;
+    border: #4b1610 2px solid;
+    font-family: "Poppins", sans-serif;
+    transition: transform .2s
+}
+
+.btn-card:hover{
+    background-color:#5c2e22;
+    color: #FFF5EE;
+    border: #5c2e22 2px solid;
+    font-family: "Poppins", sans-serif;
+    transform: scale(1.05);
+}
+
+.btn-card:focus{
+    background-color: #4b1610;
+    color: #FFF5EE;
+    font-family: "Poppins", sans-serif;
+    box-shadow: none;
+    outline: none;
+    transform: scale(1.05);
+}
+
+.card-title{
+    font-size: x-large;
+    font-weight: bold;
+    min-height: 3vh;
+}
+
+.card:hover{
+    transform: scale(1.05);
+}

@@ -1,0 +1,86 @@
+#body-carrinho{
+    background-color: #5c2e22;
+    padding: 0;
+    margin: 0;
+}
+
+.table{
+    --bs-table-color: initial;
+    --bs-table-bg: initial;
+    --table-border-color: initial;
+
+    background-color: #FFF5EE;
+    border-color: #4b1610;
+    color: #4b1610;
+    font-family: "Poppins", sans-serif;
+}
+.table>tbody>tr>td, 
+.table>tbody>tr>th {
+    font-family: "Poppins", sans-serif;
+    align-items: center;
+    justify-content: center;
+}
+
+.fa-minus{
+    color: #4b1610;
+}
+
+.fa-plus{
+    color: #4b1610;
+}
+
+.btn-carrinho{
+    border: none;
+    background-color: transparent;
+    box-shadow: none;
+    outline: none;
+    font-family: "Poppins", sans-serif;
+    font-size: large;
+    padding: 2vh;
+}
+
+.col#botaoCart{
+    align-self: start;
+    background-color: transparent;
+    font-family: "Poppins", sans-serif;
+} 
+
+.btn-cart{
+    background-color: #4b1610;
+    border-color: #4b1610;
+    color: #FFF5EE;
+    font-family: "Poppins", sans-serif;
+}
+
+.btn-cart:hover{
+    background-color: #FFF5EE;
+    border-color: #4b1610;
+    color: #4b1610;
+    font-family: "Poppins", sans-serif;
+}
+
+.btn-cart:focus{
+    background-color: #FFF5EE;
+    border-color: #4b1610;
+    color: #4b1610;
+    font-family: "Poppins", sans-serif;
+}
+
+h4{
+    background-color: #FFF5EE;
+    border-color: #4b1610;
+    color: #4b1610;
+    font-family: "Poppins", sans-serif;
+}
+
+#modal-payment{
+    background-color: #4b1610;
+    color: #FFF5EE;
+  }
+  
+  
+.form-control:focus{
+    border: #4b1610 2px solid;
+    box-shadow: none;
+    outline: none;
+  }

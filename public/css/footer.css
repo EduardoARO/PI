@@ -1,0 +1,34 @@
+#fa-github {
+    background-color: #333333;
+    border: none;
+    align-content: center;
+}
+#fa-linkedin {
+    background-color: #0082ca;
+    border: none;
+    align-content: center;
+}
+#fa-instagram{
+    background-color: #ac2bac;
+    border: none;
+    align-content: center;
+}
+#fa-google{
+    background-color: #dd4b39;
+    border: none;
+    align-content: center;
+}
+#fa-twitter{
+    background-color: #55acee;
+    border: none;
+    align-content: center;
+}
+#fa-facebook{
+    background-color: #3b5998;
+    border: none; 
+    align-content: center;
+}
+
+.container#container-footer{
+    padding: 0;
+}

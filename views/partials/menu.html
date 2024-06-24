@@ -1,0 +1,66 @@
+<!-- MENU -->
+<div class="container-fluid" id="menu">
+            <% if (user) { %>        
+        <ul class="nav">
+            <div class="col" id="menu">
+                <a id="amenu" href="/sobreNos"><button class="btn btn-menu">Sobre Nós</button></a>
+                <a id="amenu" href="/cardapio"><button class="btn btn-menu">Cardápio</button></a>
+                <a id="amenu" href="/carrinho"><button class="btn btn-menu ">Carrinho</button></a>
+                <a id="amenu" href="/perfil"><button class="btn btn-menu">Perfil</button></a>
+            </div>
+                <% if (user.email === 'admin@email.com') { %>
+                <div class="col" id="menu">
+                    <a id="amenu" href="/admin"><button class="btn btn-menu">Administração</button></a>
+                </div>
+                <% } %>
+        </ul>
+            <% } else { %>       
+        <ul class="nav">
+            <div class="col" id="menu">
+                <a id="amenu" href="/sobreNos"><button class="btn btn-menu">Sobre Nós</button></a>
+                <a id="amenu" href="/cardapio"><button class="btn btn-menu">Cardápio</button></a>
+                <a id="amenu" href="/carrinho"><button class="btn btn-menu ">Carrinho</button></a>
+            </div>
+        </ul>
+
+<!-- MODAL DO LOGIN -->
+<div class="modal fade" id="login" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog" >
+        <div class="modal-content" id="modal-login">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="titulo">Login</h1>
+                <button type="button" id="navbarbtn" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+             <div class="modal-body text-start">
+                <form action="/" method="POST">
+                    <div class="mb-3">
+                        <label for="Email" class="form-label">Email</label>
+                        <input type="email" name="email" class="form-control" placeholder="Insira seu e-mail:" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="Senha" class="form-label">Senha</label>
+                        <input type="password" name="password" class="form-control" placeholder="Insira sua senha:" required>
+                    </div>
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h5>Não possui uma conta?</h5>
+                                <!-- BOTÃO DE CADASTRO -->
+                                <a class="btn btn-login" href="/cadastro">Cadastrar-se</a>
+                                <% if (typeof error !== 'undefined') { %>
+                                    <p><%= error %></p>
+                                <% } %>
+                            </div> 
+                            <div class="col-md-8 text-end">
+                                <input type="submit" value="Entrar" name="acao" class="btn btn-login"/>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<% } %> 
+
+</div> 

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho</title>
+    <!-- ICONS -->
+    <script src="https://kit.fontawesome.com/3a136bbce7.js" crossorigin="anonymous"></script>  
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- CSS -->      
+    <link rel="stylesheet" href="../public/css/carrinho.css">
+    <link rel="stylesheet" href="../public/css/navbar.css">
+    <link rel="stylesheet" href="../public/css/menu.css">
+    <link rel="stylesheet" href="../public/css/footer.css">
+</head>
+<body id="body-carrinho">
+    
+    <%- include('partials/navbar.html') %>
+
+    <%- include('partials/menu.html') %>
+
+    <!-- CARRINHO -->
+    <div id="container-carrinho" class="container col-md-12 mt-5">
+        <div class="row">
+            <div class="col">
+                <div class="table-responsive">
+                    <table class="table table-hover rounded">
+                        <thead>
+                            <tr>
+                                <th scope="col">Item</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col"></th>
+                                <th scope="col">Quantidade</th>
+                                <th scope="col"></th>
+                                <th scope="col">Preço</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% carrinho.forEach(itemCarrinho => { %>
+                                <% const item = cardapio.find(i => i.name === itemCarrinho.name); %>
+                                <% if (item) { %>
+                                    <tr>
+                                        <td class="text-black"><img src="<%= item.photo %>" alt="<%= item.name %>" style="max-width: 100px;"></td>
+                                        <td style="padding-top: 60px;" class="text-black"><%= item.name %></td>
+                                        
+                                        <td style="padding-top: 45px;">
+                                            <form action="/carrinho/decrementar" method="POST" style="display:inline;">
+                                            <input type="hidden" name="itemName" value="<%= item.name %>">
+                                            <button type="submit" class="btn btn-carrinho"><i class="fa-solid fa-minus"></i></button>
+                                            </form>
+                                        </td>
+
+                                        <td style="padding-top: 60px; padding-left: 55px;" class="text-black">
+                                            <p><%= itemCarrinho.quantity %></p>
+                                        </td>
+
+                                        <td style="padding-top: 45px;">
+                                            <form action="/carrinho/incrementar" method="POST" style="display:inline;">
+                                            <input type="hidden" name="itemName" value="<%= item.name %>">
+                                            <button type="submit" class="btn btn-carrinho ms-4"><i class="fa-solid fa-plus"></i></button>
+                                            </form>
+                                        </td>
+                                            
+                                        
+                                        <td style="padding-top: 60px;" class="text-black">R$<%= (item.price * itemCarrinho.quantity).toFixed(2) %></td>
+                                        <td style="padding-top: 40px; padding-left: 2vh;">
+                                            
+                                            
+                                            <form action="/carrinho/remover" method="POST" style="display:inline;">
+                                                <input type="hidden" name="itemName" value="<%= item.name %>">
+                                                <button type="submit" class="btn btn-danger mt-3">Excluir</i></button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                <% } %>
+                            <% }); %>
+                        </tbody> 
+                    </table>
+                    
+                </div>
+                <div class="row bg-none mb-5">
+                    <div id="botaoCart" class="col mt-3">
+                        <a href="/cardapio"><button class="btn btn-cart">Continuar Comprando</button></a>
+                    </div>
+                    <% if (carrinho.length > 0) { %>
+                    <div class="col mt-3 text-center" id="total">
+                        <h4 class="rounded-pill">Total: R$<%= valor_total.toFixed(2) %></h4>
+                    </div>
+                    <div id="botaoCart" class="col mt-3 text-end">
+                        <form action="/carrinho/checkout" method="POST">
+                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#paymentModal">Finalizar Compra</button>
+                        </form>
+                    </div>
+                    <% } %>
+                </div> 
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Pagamento -->
+    <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content" id="modal-payment">
+            <div class="modal-header">
+              <h5 class="modal-title" id="paymentModalLabel">Escolha a Forma de Pagamento</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form id="paymentForm" action="/carrinho/checkout" method="POST">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="paymentMethod" id="Cartao" value="Cartao" required>
+                  <label class="form-check-label" for="Cartao">
+                    Cartão de Crédito
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="paymentMethod" id="Pix" value="Pix" required>
+                  <label class="form-check-label" for="Pix">
+                    Pix
+                  </label>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-login" form="paymentForm">Finalizar Compra</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <%- include('partials/footer.html') %>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-Qv0v4SmNdEN1tFNhWAm6+szdlBEcVKH6aO6p/2oxJ8SBY4pZ0Z8N0lURTvu4zll4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>        
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

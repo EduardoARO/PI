@@ -1,0 +1,25 @@
+    <!-- NAVBAR -->
+<div class="container-fluid" id="container-navbar">
+    <nav class="navbar navbar-expand-lg sticky-top">
+
+        <div id="col-navbar" class="col col-md-4">
+                <img class="img-fluid" id="logo" src="https://i.imgur.com/bfO05KP.png" alt="" id="logo">
+        </div>
+
+        <div id="col-navbar" class="col col-md-4 text-center">
+                <h1 id="nome">Ponto Doce</h1>
+        </div>
+
+        <div id="col-navbar" class="col col-md-4 ">
+                <a id="iconCar" href="/"><i class="fa-solid fa-house"></i></a>
+            <% if (user) { %>
+                <a id="iconCar" href="/carrinho"><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href="/logout" class="btn btn-login">Logout</a> 
+            <% } else { %>
+                 <!-- BOTÃO DE LOGIN -->
+                <a  class="btn btn-login" data-bs-toggle="modal" data-bs-target="#login">Login</a>
+        </div>
+            <% } %>
+
+    </nav>
+</div>

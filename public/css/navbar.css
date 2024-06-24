@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Koulen&family=Montserrat:wght@200&family=Noto+Sans&family=Noto+Sans+JP:wght@100&family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+
+@media only screen and (max-width: 360px) {
+    img#logo {
+      width: 100%;
+    }
+  }
+
+@media only screen and (min-width: 1024px) {
+    img#logo {
+      width: 25%;
+    }
+  }
+
+.btn-login{
+    background-color:#5c2e22;
+    color: #FFF5EE;
+    border: #4b1610 2px solid;
+    font-family: "Poppins", sans-serif;
+}
+
+.btn-login:hover{
+    background-color:#FFF5EE;
+    color: #5c2e22;
+    border: #4b1610 2px solid;
+    font-family: "Poppins", sans-serif;
+}
+ 
+.btn-login:focus{
+    background-color: #4b1610;
+    color: #FFF5EE;
+    border: #4b1610 2px solid;
+    font-family: "Poppins", sans-serif;
+    box-shadow: none;
+    outline: none;
+}
+
+i{
+    color: #FFF5EE;
+    margin-right: 4vh;
+}
+
+.container-fluid#container-navbar{
+    background-color: #4b1610;
+    padding:1vh;
+    border-bottom: #240a08 3px solid;
+}
+
+.col#col-navbar{
+    font-family:'Pacifico', cursive;
+    color: #FFF5EE;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#modal-login{
+  background-color: #4b1610;
+  color: #FFF5EE;
+}
+
+.form-control:focus{
+  border: #4b1610 2px solid;
+  box-shadow: none;
+  outline: none;
+}
+
+h5{
+  font-size: small;
+}
+
+

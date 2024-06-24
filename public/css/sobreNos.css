@@ -1,0 +1,17 @@
+#body-sobreNos{
+    background-color: #FFF5EE;
+    padding: 0;
+    margin: 0;
+}
+
+.container-fluid#container-imagem{
+    display: 1;
+    padding-left: 0;
+    padding-right: 0;
+    background-color: #4b1610;
+}
+
+img#sobreNos {
+    width: 100%;
+    height: 100%;
+}

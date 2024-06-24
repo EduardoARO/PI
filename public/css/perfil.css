@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Koulen&family=Montserrat:wght@200&family=Noto+Sans&family=Noto+Sans+JP:wght@100&family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+
+#body-perfil{
+    background-color: #FFF5EE;
+    padding: 0;
+    margin: 0;
+}
+
+.container#container-infos{
+    background-color:#4b1610;
+    color: #FFF5EE;
+    border: #4b1610 2px solid;
+    font-family:"Poppins", sans-serif;
+    padding-top: 2vh;
+}
+
+.card#card-infos{
+    background-color:#FFF5EE;
+    color: #4b1610;
+    border: #4b1610 2px solid;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 2vh;
+}
+
+.card-title{
+    background-color:#4b1610;
+    color: #FFF5EE;
+    border: #4b1610 2px solid;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 2vh;
+}

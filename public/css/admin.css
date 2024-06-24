@@ -1,0 +1,27 @@
+#body-admin{
+    background-color: #1B1212;
+}
+
+.container-fluid {
+    display: 1;
+    justify-content: center;
+    max-width: 740px;
+    min-height: fit-content;
+    flex-direction: column;
+    padding-left: 0;
+    align-items: center;
+}
+
+.row{
+   display: flex;
+   background-color: #ffff;
+   color: #1B1212;
+   font-family: "Poppins", sans-serif;
+   padding: 4vh;
+   margin: 4vh;
+
+}
+
+h2 {
+    justify-content: center;
+}
