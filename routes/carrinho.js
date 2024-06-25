@@ -3,6 +3,15 @@ const router = express.Router();
 const nodemailer = require('nodemailer');
 require('dotenv').config(); 
 
+// Configuração do transporte de e-mail
+const transporter = nodemailer.createTransport({
+  service: 'Gmail',
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+});
+
 // Rota GET para renderizar a página de carrinho
 router.get('/carrinho', async (req, res) => {
   try {
@@ -112,20 +121,13 @@ router.post('/carrinho/checkout', async (req, res) => {
     });
 
     req.session.carrinho = []; // Limpar o carrinho após a finalização da compra
+    req.session.itensDoCarrinho = itensDoCarrinho; // Salvar os itens do carrinho na sessão para uso na página de sucesso
+    req.session.valor_total = valor_total; // Salvar o valor total na sessão
     res.redirect('/carrinho/sucesso');
   } catch (error) {
     console.error(error);
     res.status(500).send('Erro ao processar o pedido.');
   }
-});
-
-// Configuração do transporte de e-mail
-const transporter = nodemailer.createTransport({
-  service: 'Gmail',
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
 });
 
 // Rota GET para a página de sucesso
@@ -168,7 +170,5 @@ router.get('/carrinho/sucesso', async (req, res) => {
     res.status(500).send('Erro ao processar a página de sucesso.');
   }
 });
-
-
 
 module.exports = router;

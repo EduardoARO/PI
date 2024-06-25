@@ -84,3 +84,7 @@ h4{
     box-shadow: none;
     outline: none;
   }
+
+.container#container-carrinho{
+    min-height: 50vh;
+}
