@@ -38,7 +38,11 @@
 
 i{
     color: #FFF5EE;
-    margin-right: 4vh;
+    margin-right: 2vh;
+}
+
+i#logout{
+    color: #FFF5EE;
 }
 
 .container-fluid#container-navbar{

@@ -13,8 +13,9 @@
         <div id="col-navbar" class="col col-md-4 ">
                 <a id="iconCar" href="/"><i class="fa-solid fa-house"></i></a>
             <% if (user) { %>
-                <a id="iconCar" href="/carrinho"><i class="fa-solid fa-cart-shopping"></i></a>
-                <a href="/logout" class="btn btn-login">Logout</a> 
+                <a id="iconCarrinho" href="/perfil"><i class="fa-solid fa-user"></i></a>
+                <a id="iconPerfil" href="/carrinho"><i class="fa-solid fa-cart-shopping"></i></a>
+                <a id="iconLogout" href="/logout" class="btn btn-login"><i id="logout" class="fa-solid fa-right-to-bracket"></i></a> 
             <% } else { %>
                  <!-- BOTÃO DE LOGIN -->
                 <a  class="btn btn-login" data-bs-toggle="modal" data-bs-target="#login">Login</a>
