@@ -132,15 +132,25 @@ const transporter = nodemailer.createTransport({
 router.get('/carrinho/sucesso', async (req, res) => {
   try {
     const user = req.session.user;
+    const itensDoCarrinho = req.session.itensDoCarrinho || [];
+    const valor_total = req.session.valor_total || 0;
+
     if (!user) {
       return res.status(400).send('Usuário não logado.');
     }
+
+    // Criar a mensagem de e-mail com os detalhes dos itens
+    let emailText = `Olá ${user.name},\n\nAgradecemos por realizar sua compra conosco! Seus itens serão realizados e em breve serão enviados.\n\nDetalhes da compra:\n`;
+    itensDoCarrinho.forEach(item => {
+      emailText += `\nItem: ${item.name}\nValor Unitário: R$${item.price.toFixed(2)}\nQuantidade: ${item.quantity}\nValor Total: R$${(item.price * item.quantity).toFixed(2)}\n`;
+    });
+    emailText += `\nValor Total da Compra: R$${valor_total.toFixed(2)}\n\nAtenciosamente,\nEquipe da Ponto Doce`;
 
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: user.email,
       subject: 'Agradecemos pela sua compra!',
-      text: `Olá ${user.name},\n\nAgradecemos por realizar sua compra conosco! Seus itens serão realizados e em breve serão enviados.\n\nAtenciosamente,\nEquipe da Ponto Doce`,
+      text: emailText,
     };
 
     // Enviar e-mail de agradecimento
@@ -152,7 +162,7 @@ router.get('/carrinho/sucesso', async (req, res) => {
       }
     });
 
-    res.render('sucesso', { user: req.session.user });
+    res.render('sucesso', { user, itensDoCarrinho, valor_total });
   } catch (error) {
     console.error(error);
     res.status(500).send('Erro ao processar a página de sucesso.');
