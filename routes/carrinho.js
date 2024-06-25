@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const nodemailer = require('nodemailer');
+require('dotenv').config(); 
 
 // Rota GET para renderizar a página de carrinho
 router.get('/carrinho', async (req, res) => {
@@ -117,10 +119,46 @@ router.post('/carrinho/checkout', async (req, res) => {
   }
 });
 
+// Configuração do transporte de e-mail
+const transporter = nodemailer.createTransport({
+  service: 'Gmail',
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+});
 
 // Rota GET para a página de sucesso
-router.get('/carrinho/sucesso', (req, res) => {
-  res.render('sucesso', { user: req.session.user });
+router.get('/carrinho/sucesso', async (req, res) => {
+  try {
+    const user = req.session.user;
+    if (!user) {
+      return res.status(400).send('Usuário não logado.');
+    }
+
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: user.email,
+      subject: 'Agradecemos pela sua compra!',
+      text: `Olá ${user.name},\n\nAgradecemos por realizar sua compra conosco. Seus itens serão processados e em breve serão enviados.\n\nAtenciosamente,\nEquipe da Ponto Doce`,
+    };
+
+    // Enviar e-mail de agradecimento
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.error('Erro ao enviar e-mail de sucesso:', error);
+      } else {
+        console.log('E-mail de sucesso enviado: ' + info.response);
+      }
+    });
+
+    res.render('sucesso', { user: req.session.user });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Erro ao processar a página de sucesso.');
+  }
 });
+
+
 
 module.exports = router;
