@@ -45,7 +45,8 @@ module.exports = (db) => {
         to: newUser.email,
         subject: 'Bem-Vindo!',
         text: `Bem-Vindo, ${newUser.name}!`,
-        html: `<p>Bem-Vindo, <strong>${newUser.name}</strong>!</p>`
+        html: `<h1>Bem-Vindo à Ponto Doce, <strong>${newUser.name}</strong>!</h1> <br>
+            <p>Obrigado pelo seu cadastro em nossa página. Bom apetite!</p>`
       };
 
       // Enviar e-mail
