@@ -46,6 +46,11 @@ i#logout{
     margin-left: 1.5vh;
 }
 
+i#logout:hover{
+  color: #4b1610;
+  margin-left: 1.5vh;
+}
+
 .container-fluid#container-navbar{
     background-color: #4b1610;
     padding:1vh;
@@ -75,5 +80,6 @@ i#logout{
 h5{
   font-size: small;
 }
+
 
 
