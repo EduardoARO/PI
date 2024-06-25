@@ -140,7 +140,7 @@ router.get('/carrinho/sucesso', async (req, res) => {
       from: process.env.EMAIL_USER,
       to: user.email,
       subject: 'Agradecemos pela sua compra!',
-      text: `Olá ${user.name},\n\nAgradecemos por realizar sua compra conosco. Seus itens serão processados e em breve serão enviados.\n\nAtenciosamente,\nEquipe da Ponto Doce`,
+      text: `Olá ${user.name},\n\nAgradecemos por realizar sua compra conosco! Seus itens serão realizados e em breve serão enviados.\n\nAtenciosamente,\nEquipe da Ponto Doce`,
     };
 
     // Enviar e-mail de agradecimento
