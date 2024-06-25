@@ -2,12 +2,12 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const nodemailer = require('nodemailer');
-require('dotenv').config();
+require('dotenv').config(); // Carrega variáveis de ambiente do arquivo .env
 
 module.exports = (db) => {
   // Configuração do transporte de e-mail
   const transporter = nodemailer.createTransport({
-    service: 'Gmail', // ou outro serviço de e-mail
+    service: 'Gmail',
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS,
@@ -45,8 +45,7 @@ module.exports = (db) => {
         to: newUser.email,
         subject: 'Bem-Vindo!',
         text: `Bem-Vindo, ${newUser.name}!`,
-        html: `<h1>Bem-Vindo, <strong>${newUser.name}</strong>!</h1> <br>
-            <p>Obrigado pelo seu cadastro em nossa página. Bom apetite!</p>`
+        html: `<p>Bem-Vindo, <strong>${newUser.name}</strong>!</p>`
       };
 
       // Enviar e-mail
