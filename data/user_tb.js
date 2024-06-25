@@ -40,7 +40,7 @@ db.createCollection(collection, {
 // Inserir um exemplo de documento na coleção
 db.user_tb.insertOne({
   name: "Admin",
-  email: "admin@email.com",
+  email: "admin@gmail.com",
   password: "123", // Aqui está a adição do campo senha
   createdAt: new Date(),
 });

@@ -15,7 +15,7 @@ async function createAdminUser() {
     const hashedPassword = await bcrypt.hash('adminpassword', 10);
     await db.collection('user_tb').insertOne({
       name: 'Admin',
-      email: 'admin@email.com',
+      email: 'admin@gmail.com',
       password: hashedPassword,
       createdAt: new Date(),
     });

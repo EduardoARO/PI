@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 // Middleware para verificar se o usuário é admin
 router.use((req, res, next) => {
     // Se o usuário for admin, permita o acesso a todas as rotas
-    if (req.session.user && req.session.user.email === 'admin@email.com') {
+    if (req.session.user && req.session.user.email === 'admin@gmail.com') {
         next();
     } else {
         // Se o usuário não for admin, permita o acesso apenas às rotas públicas (não-administrativas)
