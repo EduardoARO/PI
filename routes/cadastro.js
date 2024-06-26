@@ -22,7 +22,7 @@ module.exports = (db) => {
   router.post('/cadastro', async (req, res) => {
     const { nome, email, password } = req.body;
 
-    const userExists = await db.collection('user_tb').findOne({ $or: [{ name: nome }, { email }] });
+    const userExists = await db.collection('user_tb').findOne({ $or:  [{ email }] });
     if (userExists) {
       return res.render('cadastro', { error: 'Usuário ou email já cadastrado!' });
     }
