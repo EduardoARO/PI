@@ -82,7 +82,7 @@
                 </div>
                 <div class="row bg-none mb-5">
                     <div id="botaoCart" class="col mt-3">
-                        <a href="/cardapio"><button class="btn btn-cart">Continuar Comprando</button></a>
+                        <a href="/cardapio"><button class="btn btn-cart">Voltar ao cardápio</button></a>
                     </div>
                     <% if (carrinho.length > 0) { %>
                     <div class="col mt-3 text-center" id="total">
@@ -90,7 +90,7 @@
                     </div>
                     <div id="botaoCart" class="col mt-3 text-end">
                         <form action="/carrinho/checkout" method="POST">
-                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#paymentModal">Finalizar Compra</button>
+                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#paymentModal">Continuar</button>
                         </form>
                     </div>
                     <% } %>
@@ -125,7 +125,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-              <button type="submit" class="btn btn-login" form="paymentForm">Finalizar Compra</button>
+              <button type="submit" class="btn btn-success" form="paymentForm">Finalizar Compra</button>
             </div>
           </div>
         </div>
