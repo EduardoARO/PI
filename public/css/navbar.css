@@ -25,6 +25,10 @@
     color: #5c2e22;
     border: #4b1610 2px solid;
     font-family: "Poppins", sans-serif;
+    i#logout{
+      color: #4b1610;
+      margin-left: 1.5vh;
+    }
 }
  
 .btn-login:focus{
@@ -36,20 +40,33 @@
     outline: none;
 }
 
-i{
+i{ 
     color: #FFF5EE;
     margin-right: 2vh;
+    transition: transform .2s
 }
+
+i:hover{ 
+    color: #FFF5EE;
+    margin-right: 2vh;
+    transform: scale(1.2);
+}
+
 
 i#logout{
     color: #FFF5EE;
     margin-left: 1.5vh;
 }
 
-i#logout:hover{
-  color: #4b1610;
-  margin-left: 1.5vh;
+
+img#logo{ 
+  transition: transform .2s
 }
+
+img#logo:hover{ 
+  transform: scale(1.2);
+}
+
 
 .container-fluid#container-navbar{
     background-color: #4b1610;

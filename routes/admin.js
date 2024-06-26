@@ -81,6 +81,7 @@ router.post('/admin/usuarios/delete/:id', async (req, res) => {
 // Rota POST para adicionar um novo item no cardápio
 router.post('/admin/cardapio/add', async (req, res) => {
     const { name, price, photo, description } = req.body;
+    
     try {
         await req.db.collection('cardapio_tb').insertOne({
             name,
